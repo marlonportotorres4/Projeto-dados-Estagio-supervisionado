@@ -1,6 +1,4 @@
-# Projeto-dados-Estagio-supervisionado
-
-# Projeto de Análise de Dados de Petróleo e Combustíveis no Brasil
+# Projeto de Análise de Dados de Petróleo e Combustíveis no Brasil.
 
 Este repositório contém o desenvolvimento de um projeto para análise de dados públicos da ANP sobre o mercado de petróleo e combustíveis.
 
@@ -13,3 +11,9 @@ O objetivo é fazer desde uma análise dos dados até a Modelagem de dados, SQL,
 Abaixo está o Diagrama Entidade-Relacionamento (DER) do nosso Data Warehouse, modelado com uma arquitetura de Constelação de Fatos.
 
 ![Modelo de Dados do Projeto](Assets/SchemaDosDados.drawio.svg)
+
+## Fonte dos Dados
+
+Aqui você pode encontrar a fonte utilizada para obter os dados:
+
+https://dados.gov.br/dados/organizacoes/visualizar/agencia-nacional-do-petroleo-gas-natural-e-biocombustiveis-anp
