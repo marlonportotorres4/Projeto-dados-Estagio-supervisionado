@@ -10,7 +10,7 @@ O objetivo é fazer desde uma análise dos dados até a Modelagem de dados, SQL,
 
 Abaixo está o Diagrama Entidade-Relacionamento (DER) do nosso Data Warehouse, modelado com uma arquitetura de Constelação de Fatos.
 
-![Modelo de Dados do Projeto](Assets/SchemaDosDados.drawio.svg)
+![Modelo de Dados do Projeto](Assets/SchemaDados.drawio.svg)
 
 ## Fonte dos Dados
 
