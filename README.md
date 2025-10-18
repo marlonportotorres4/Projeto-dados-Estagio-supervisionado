@@ -1,4 +1,4 @@
-# Projeto de Análise de Dados de Petróleo e Combustíveis no Brasil.
+# Projeto de Análise de Dados de Petróleo e Combustíveis no Brasil. (EM DESENVOLVIMENTO)
 
 Este repositório contém o desenvolvimento de um projeto para análise de dados públicos da ANP sobre o mercado de petróleo e combustíveis.
 
