@@ -2,9 +2,9 @@
 
 Este repositório contém o desenvolvimento de um projeto para análise de dados públicos da ANP sobre o mercado de petróleo e combustíveis.
 
-O conjunto de dados consiste em bases de dados que mostram sobre sua produção(1997 - 2025), processamento(1990 - 2025), importação(2000 - 2025), exportação(2000 - 2025) e, por ultimo, sobre o combustivel automotivo que tem total relação com o petróleo(2004, 2014, 2019, 2020, 2022 e 2025).
+O conjunto de dados consiste em bases de dados que mostram sobre sua produção(1997 - 2025), processamento(1990 - 2025), importação e exportação do petróleo e seus derivados(2000 - 2025) e, por ultimo, sobre o combustivel automotivo que tem total relação com o petróleo(2004, 2010, 2016, 2020, 2022 e 2025).
 
-O objetivo é fazer desde uma análise dos dados até a Modelagem de dados, SQL, POWER BI (Dashboards) e Machine learning.
+O objetivo é fazer um processo de dados completo, desde estruturação incial e entendimento do negócio, até a Modelagem de dados, EDA, ETL, POWER BI (Dashboards) e Machine learning.
 
 ## Pipeline Inicial do Projeto de Análise de Dados de Petróleo e Combustíveis
 
