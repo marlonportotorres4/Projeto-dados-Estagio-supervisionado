@@ -14,7 +14,7 @@ O objetivo é fazer um processo de dados completo, desde estruturação incial e
 - Para cada arquivo CSV, faremos uma análise inicial (.info(), .head())
 - Documentaremos os achados (tipos de dados a corrigir, colunas importantes)
 1.3. Modelagem de Dados
-- Com base nos achados, vamos desenhar nosso Star Schema (Tabelas Fato e Dimensão)
+- Com base nos achados, vamos desenhar nosso Snow Flake Schema (Tabelas Fato e Dimensão)
 
 ### Fase 2: Engenharia de Dados (ETL - Extract, Transform, Load)
 2.1. Criação da Estrutura no Banco de Dados
@@ -40,9 +40,9 @@ O objetivo é fazer um processo de dados completo, desde estruturação incial e
 - 6.2. Criação de Dashboards mais detalhados
 - 6.3. Apresentação dos Resultados e Insights
 
-## Modelo de Dados (Star Schema)
+## Modelo de Dados (Snow Flake Schema)
 
-Abaixo está o Diagrama Entidade-Relacionamento (DER) do nosso Data Warehouse, modelado com uma arquitetura de Constelação de Fatos.
+Abaixo está o Diagrama Entidade-Relacionamento (DER) do nosso Data Warehouse.
 
 ![Modelo de Dados do Projeto](Assets/SchemaDados.drawio.svg)
 
