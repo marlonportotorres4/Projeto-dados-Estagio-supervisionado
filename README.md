@@ -1,53 +1,70 @@
-# Projeto de Análise de Dados de Petróleo e Combustíveis no Brasil. (EM DESENVOLVIMENTO)
+# 📊 Projeto de Dados da ANP (Agência Nacional do Petróleo)
+Este é o repositório do meu projeto focado na análise de dados públicos da Agência Nacional do Petróleo (ANP). O objetivo foi ir desde a extração dos dados da ANP, passando por processos como: ETL, EDA, construção de um dashboard interativo e completo no Power BI, cobrindo todo o ciclo de vida dos dados.
 
-Este repositório contém o desenvolvimento de um projeto para análise de dados públicos da ANP sobre o mercado de petróleo e combustíveis.
+## 🎯 Sobre o Projeto
+Este projeto nasceu da vontade de aplicar minha capacidade analítica, conhecimentos em Ciência de dados e Análise de dados em um cenário real, utilizando dados públicos de alta relevância para o Brasil. O dashboard final é dividido em três análises principais:
 
-O conjunto de dados consiste em bases de dados que mostram sobre sua produção(1997 - 2025), processamento(1990 - 2025), importação e exportação do petróleo e seus derivados(2000 - 2025) e, por ultimo, sobre o combustivel automotivo que tem total relação com o petróleo(2004, 2010, 2016, 2020, 2022 e 2025).
+* **Análise de Comércio Exterior:** Focada na balança comercial (importação vs. exportação) de produtos petrolíferos, Gás natural e Etanol.
+* **Análise de Combustíveis:** Centrada nos preços médios (Gasolina, Etanol, Diesel) por estado, tendências temporais e dominância das bandeiras de revendedores.
+* **Análise das Refinarias:** Uma visão detalhada sobre as Refinarias e seus processamentos, além da origem de produção do petróleo brasileiro.
 
-O objetivo é fazer um processo de dados completo, desde estruturação incial e entendimento do negócio, até a Modelagem de dados, EDA, ETL, POWER BI (Dashboards) e Machine learning.
+## 🗃️ Fonte dos Dados
+Todos os dados foram extraídos do site de Dados Abertos da ANP. Abaixo você pode acessar o Link para todos os dados utilizados nesse projeto:
 
-## Pipeline Inicial do Projeto de Análise de Dados de Petróleo e Combustíveis
+[🔗 Clique aqui para acessar a Fonte de Dados da ANP](https://dados.gov.br/dados/organizacoes/visualizar/agencia-nacional-do-petroleo-gas-natural-e-biocombustiveis-anp)
 
-### Fase 1: Estruturação e Entendimento (Onde estamos)
-1.1. Definição do Problema de Negócio
-1.2. Coleta e Análise Exploratória PRELIMINAR
-- Para cada arquivo CSV, faremos uma análise inicial (.info(), .head())
-- Documentaremos os achados (tipos de dados a corrigir, colunas importantes)
-1.3. Modelagem de Dados
-- Com base nos achados, vamos desenhar nosso Snow Flake Schema (Tabelas Fato e Dimensão)
 
-### Fase 2: Engenharia de Dados (ETL - Extract, Transform, Load)
-2.1. Criação da Estrutura no Banco de Dados
-- Escreveremos o código SQL para criar as tabelas vazias no MySQL.
-2.2. Desenvolvimento do Script de Carga e Tratamento
-- Criaremos o script Python que lê os CSVs, limpa os dados (corrige tipos, trata nulos), e carrega nas tabelas do MySQL.
+## ⚙️ Processo do Projeto
+O projeto foi estruturado em um pipeline completo de dados, desde a coleta bruta até a visualização final, dividido nas seguintes etapas:
 
-### Fase 3: Visualização inicial com POWER BI
-- 3.1. Conexão do Power BI ao Banco de Dados
-- 3.2. Criação de dashboards iniciais 
+### 1. Coleta e Ambiente de Dados
+* **Seleção dos Dados:** Escolha e download dos datasets públicos de interesse do portal de Dados Abertos da ANP.
+* **Ambiente de Banco de Dados:** Criação de um contêiner Docker (via `docker-compose`) para instanciar um banco de dados MySQL, que serviu como nosso Data Warehouse.
 
-### Fase 4: Análise Exploratória de Dados PROFUNDA (EDA)
-- 4.1. Análise Univariada (estudo de cada variável)
-- 4.2. Análise Bivariada e Multivariada (cruzamento de variáveis)
-- 4.3. Geração de Gráficos e Descoberta de Insights
+### 2. Análise Exploratória de Dados (EDA)
+* **Primeiro Contato:** Utilização de Jupyter Notebooks e Pandas para ter o primeiro contato com os dados.
+* **Análise Estrutural:** Verificação da estrutura geral dos arquivos, tipos de dados (`dtypes`), identificação de valores nulos, e análise de problemas iniciais de qualidade.
+* **Definição do Modelo:** Separação conceitual das colunas que serviriam como métricas (Fato) e como contexto (Dimensão).
 
-### Fase 5: Modelagem Preditiva (Machine Learning)
-- 5.1. Preparação dos Dados para o Modelo
-- 5.2. Treinamento de Modelos Não-Supervisionados (clusters, anomalias)
-- 5.3. Interpretação dos Resultados
-
-#### Fase 6: Visualização e Apresentação Detalhada com Power BI
-- 6.2. Criação de Dashboards mais detalhados
-- 6.3. Apresentação dos Resultados e Insights
-
-## Modelo de Dados (Snow Flake Schema)
-
-Abaixo está o Diagrama Entidade-Relacionamento (DER) do nosso Data Warehouse.
+### 3. Modelagem do Data Warehouse
+* **Desenho Conceitual:** Modelagem dos dados no **Draw.io** para desenhar o Diagrama Entidade-Relacionamento (DER) e definir o **Esquema Galáxia (Galaxy Schema)**.
+* **Criação do Schema (DDL):** Escrita do script `schemas.sql` para criar todas as tabelas Fato e Dimensão no MySQL, definindo colunas, tipos de dados, Chaves Primárias (PKs) e Chaves Estrangeiras (FKs).
 
 ![Modelo de Dados do Projeto](Assets/SchemaDados.drawio.svg)
 
-## Fonte dos Dados
+### 4. Processo de ETL (Python)
+* **Carga no DW:** Utilização de Python (Pandas e SQLAlchemy) para carregar os dados tratados para dentro das tabelas criadas no MySQL.
+* **Tratamento de Dados:** Aplicação de transformações, limpeza e padronização de dados durante o processo.
+* **Otimização de Carga:** Para arquivos CSV muito grandes (que juntos somavam mais de 5 milhões de linhas), foi utilizado um iterador com `chunksize` para carregar os dados em lotes, evitando o esgotamento de memória.
+* **Verificação:** Validação pós-carga para garantir que todos os registros foram carregados com sucesso.
 
-Aqui você pode encontrar a fonte utilizada para obter os dados:
+### 5. Visualização e Análise (Power BI)
+* **Conexão e ETL Fino:** Conexão do Power BI ao Data Warehouse MySQL. O Power Query foi utilizado para alguns tratamentos e ajustes finos nos dados.
+* **Modelagem de Dados:** Verificação das relações, cardinalidade (1-para-Muitos) e ocultação de chaves na exibição de modelo do Power BI, confirmando o Galaxy Schema.
+* **Design (UI):** Criação de um layout "Dark Mode" e um plano de fundo utilizando o Canva.
+* **Desenvolvimento (UX):** Desenvolvimento dos visuais, métricas DAX, e implementação da navegação interativa (botões, marcadores) diretamente no Power BI.
 
-https://dados.gov.br/dados/organizacoes/visualizar/agencia-nacional-do-petroleo-gas-natural-e-biocombustiveis-anp
+Demonstração do Dashboard Interativo desenvolvido no PowerBI:
+
+![GifDashboard](https://github.com/user-attachments/assets/1aa7b2b4-58b1-4a08-bd54-148591309a01)
+
+Para uma descrição mais detalhada sobre o processo envolvendo o PowerBI + Vídeo demonstração veja meu post completo no LinkedIn:
+
+[🔗 Clique aqui para ver o post no LinkedIn sobre este projeto](https://www.linkedin.com/posts/marlon-porto-torres_powerbi-dataanalysis-businessintelligence-activity-7394806768364830720-Qqc9)
+
+## 💡 Principais Insights Retirados
+
+
+## 🛠️ Principais Tecnologias Utilizadas
+* **Python**
+* **SQL** 
+* **Docker**
+* **Power BI Desktop** 
+* **GitHub**
+* **Draw.io**  
+* **Excel**
+
+## 🧑 Créditos
+* **Autor:** Marlon Torres
+* **[LinkedIn](https://www.linkedin.com/in/marlon-porto-torres/)**
+* **[GitHub](https://github.com/marlonportotorres4)**
